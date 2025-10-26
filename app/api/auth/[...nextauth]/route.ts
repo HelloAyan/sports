@@ -1,3 +1,4 @@
+export const runtime = "nodejs";
 import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
 
@@ -21,7 +22,7 @@ const handler = NextAuth({
     },
     async session({ session, token }) {
       if (session.user) {
-        ;(session.user as any).id = token.id
+        ; (session.user as any).id = token.id
       }
       return session
     },
