@@ -428,7 +428,7 @@ export function TwoCombineComponent({ layout = "grid", title = "Live Sports Even
         <div className="w-full">
           <div className="flex items-center justify-between p-3 rounded-lg bg-gradient-to-r from-gray-50 to-gray-100 border-2 border-gray-200">
             <div className="flex items-center space-x-2">
-              <Tv className="h-4 w-4 text-gray-500" />
+              <Tv />
               <span className="text-sm font-medium text-gray-600">TV Info Not Available</span>
             </div>
             <AlertCircle className="h-4 w-4 text-gray-500" />
@@ -487,13 +487,13 @@ export function TwoCombineComponent({ layout = "grid", title = "Live Sports Even
               <div className="flex items-center space-x-2">
                 <Tv className="h-4 w-4 text-purple-600" />
                 <div className="flex items-center space-x-2">
-                  <Image
+                  {/* <Image
                     src={TV_CHANNEL_LOGOS[primaryChannel] || "/placeholder.svg?height=24&width=60"}
                     alt={primaryChannel}
                     width={30}
                     height={18}
                     className="object-contain rounded border"
-                  />
+                  /> */}
                   <span className="text-sm font-medium text-gray-700">{primaryChannel}</span>
                 </div>
               </div>
@@ -515,13 +515,13 @@ export function TwoCombineComponent({ layout = "grid", title = "Live Sports Even
             <ScrollArea className="max-h-80">
               {channels.map((channel, index) => (
                 <DropdownMenuItem key={index} className="flex items-center space-x-3 p-3 hover:bg-purple-50 cursor-pointer">
-                  <Image
+                  {/* <Image
                     src={TV_CHANNEL_LOGOS[channel] || "/placeholder.svg?height=24&width=60"}
                     alt={channel}
                     width={40}
                     height={24}
                     className="object-contain rounded border"
-                  />
+                  /> */}
                   <div className="flex-1">
                     <span className="text-sm font-medium block">{channel}</span>
                     <div className="text-xs text-gray-500">{CHANNEL_REGIONS[channel] || "🌍 Global"}</div>
@@ -668,45 +668,49 @@ export function TwoCombineComponent({ layout = "grid", title = "Live Sports Even
           </div> */}
 
           {/* Center Match Info */}
-          <div className="col-span-9 bg-gradient-to-br from-gray-50 to-blue-50 p-4">
+          <div className="col-span-12 md:col-span-12 lg:col-span-9 bg-gradient-to-br from-gray-50 to-blue-50 p-4">
             <div className="text-center mb-4">
-              <h3 className="text-xl font-bold text-gray-800 mb-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                LIVE MATCH CENTER
-              </h3>
-              <div className="flex items-center justify-center gap-6">
-                <div className="text-center">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="w-6 h-6 bg-blue-500 rounded text-white text-xs flex items-center justify-center font-bold">
-                      {getTeamInitials(event.strHomeTeam)}
-                    </span>
-                    <span className="text-lg font-semibold text-gray-800">{event.strHomeTeam}</span>
-                  </div>
-                  <div className="text-4xl font-bold text-blue-600 bg-white px-4 py-2 rounded-lg shadow-inner">
-                    {event.intHomeScore || "0"}
-                  </div>
-                </div>
+              <div className="flex flex-col md:flex md:flex-col">
+                <h3 className="text-xl font-bold text-gray-800 mb-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                  LIVE MATCH CENTER
+                </h3>
 
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-gray-400 mb-2">VS</div>
-                  {isLive && <div className="w-3 h-3 bg-red-500 rounded-full mx-auto animate-pulse"></div>}
-                </div>
-
-                <div className="text-center">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="w-6 h-6 bg-green-500 rounded text-white text-xs flex items-center justify-center font-bold">
-                      {getTeamInitials(event.strAwayTeam)}
-                    </span>
-                    <span className="text-lg font-semibold text-gray-800">{event.strAwayTeam}</span>
+                <div className="flex items-center justify-center gap-6">
+                  <div className="text-center">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="w-6 h-6 bg-blue-500 rounded text-white text-xs flex items-center justify-center font-bold">
+                        {getTeamInitials(event.strHomeTeam)}
+                      </span>
+                      <span className="text-lg font-semibold text-gray-800">{event.strHomeTeam}</span>
+                    </div>
+                    <div className="text-4xl font-bold text-blue-600 bg-white px-4 py-2 rounded-lg shadow-inner">
+                      {event.intHomeScore || "0"}
+                    </div>
                   </div>
-                  <div className="text-4xl font-bold text-green-600 bg-white px-4 py-2 rounded-lg shadow-inner">
-                    {event.intAwayScore || "0"}
+
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-gray-400 mb-2">VS</div>
+                    {isLive && <div className="w-3 h-3 bg-red-500 rounded-full mx-auto animate-pulse"></div>}
+                  </div>
+
+                  <div className="text-center">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="w-6 h-6 bg-green-500 rounded text-white text-xs flex items-center justify-center font-bold">
+                        {getTeamInitials(event.strAwayTeam)}
+                      </span>
+                      <span className="text-lg font-semibold text-gray-800">{event.strAwayTeam}</span>
+                    </div>
+                    <div className="text-4xl font-bold text-green-600 bg-white px-4 py-2 rounded-lg shadow-inner">
+                      {event.intAwayScore || "0"}
+                    </div>
                   </div>
                 </div>
               </div>
+
             </div>
 
             {/* Enhanced Tabs - All features combined */}
-            <div className="grid grid-cols-3 gap-3 text-xs">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 text-xs">
               {/* Match Events from Component 2 */}
               {layoutSettings.showLiveEvents && (
                 <div className="bg-blue-100 p-3 rounded-xl border-2 border-blue-200">
@@ -791,7 +795,7 @@ export function TwoCombineComponent({ layout = "grid", title = "Live Sports Even
           </div>
 
           {/* Right TV Channels & Venue Info */}
-          <div className="col-span-3 bg-gradient-to-br from-blue-50 to-indigo-50 p-4 border-l border-blue-200">
+          <div className="col-span-12 md:col-span-12 lg:col-span-3  bg-gradient-to-br from-blue-50 to-indigo-50 p-4 border-l border-blue-200">
             <TVChannelsDisplay tvStation={event.strTVStation} />
 
             {/* Venue Info from Component 1 */}
@@ -803,7 +807,7 @@ export function TwoCombineComponent({ layout = "grid", title = "Live Sports Even
 
             {/* Micro Ads from Component 1 */}
             {layoutSettings.showMicroAds && (
-              <div className="mt-4 p-3 bg-gradient-to-r from-gray-900 to-black rounded-lg">
+              <div className="mt-4 p-3 bg-gradient-to-r bg-[#DBEAFE] rounded-lg">
                 <div className="grid grid-cols-3 gap-2">
                   <div className="bg-gradient-to-r from-yellow-400 to-orange-500 rounded p-2 text-white text-center">
                     <Zap className="h-3 w-3 mx-auto mb-1" />
@@ -828,7 +832,7 @@ export function TwoCombineComponent({ layout = "grid", title = "Live Sports Even
 
         {/* Enhanced Action Buttons combining both components */}
         {layoutSettings.showActionButtons && (
-          <div className="grid grid-cols-6 h-[55px] border-t border-gray-200">
+          <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-6 h-auto min-h-[55px] border-t border-gray-200">
             <Button className="bg-green-600 hover:bg-green-700 text-white flex items-center justify-center gap-2 text-sm font-medium transition-colors rounded-none h-full">
               <Ticket className="h-4 w-4" />
               <span className="text-xs font-bold">BUY TICKETS</span>
