@@ -617,7 +617,7 @@ export function TwoCombineComponent({ layout = "grid", title = "Live Sports Even
             </div>
           </div>
 
-          {layoutSettings.showMicroAds && (
+          {/* {layoutSettings.showMicroAds && (
             <div className="flex gap-2">
               <button className="bg-orange-500 hover:bg-orange-600 px-4 py-2 rounded-lg text-sm font-medium transition-colors shadow-md">
                 BETTING <span className="text-xs">50% Bonus</span>
@@ -629,13 +629,13 @@ export function TwoCombineComponent({ layout = "grid", title = "Live Sports Even
                 TRAVEL <span className="text-xs">Book Now</span>
               </button>
             </div>
-          )}
+          )} */}
         </div>
 
         {/* Main Content */}
         <div className="grid grid-cols-12 min-h-[220px]">
           {/* Left Team Section */}
-          <div className="col-span-2 bg-gradient-to-br from-purple-600 to-purple-700 text-white flex flex-col items-center justify-center relative">
+          {/* <div className="col-span-2 bg-gradient-to-br from-purple-600 to-purple-700 text-white flex flex-col items-center justify-center relative">
             <div className="absolute top-4 left-4">
               <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
                 <span className="text-2xl">{sportEmoji}</span>
@@ -665,10 +665,10 @@ export function TwoCombineComponent({ layout = "grid", title = "Live Sports Even
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Center Match Info */}
-          <div className="col-span-7 bg-gradient-to-br from-gray-50 to-blue-50 p-4">
+          <div className="col-span-9 bg-gradient-to-br from-gray-50 to-blue-50 p-4">
             <div className="text-center mb-4">
               <h3 className="text-xl font-bold text-gray-800 mb-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                 LIVE MATCH CENTER
@@ -721,12 +721,12 @@ export function TwoCombineComponent({ layout = "grid", title = "Live Sports Even
                         <span className="text-xs text-gray-700 flex-1 truncate">{matchEvent.player}</span>
                         <span
                           className={`w-2 h-2 rounded-full ${matchEvent.type === "goal"
-                              ? "bg-green-500"
-                              : matchEvent.type === "yellow"
-                                ? "bg-yellow-500"
-                                : matchEvent.type === "red"
-                                  ? "bg-red-500"
-                                  : "bg-blue-500"
+                            ? "bg-green-500"
+                            : matchEvent.type === "yellow"
+                              ? "bg-yellow-500"
+                              : matchEvent.type === "red"
+                                ? "bg-red-500"
+                                : "bg-blue-500"
                             }`}
                         ></span>
                       </div>
@@ -976,10 +976,10 @@ export function TwoCombineComponent({ layout = "grid", title = "Live Sports Even
                     <span className="text-gray-700 truncate flex-1">{matchEvent.player}</span>
                     <span
                       className={`w-2 h-2 rounded-full ${matchEvent.type === "goal"
-                          ? "bg-green-500"
-                          : matchEvent.type === "yellow"
-                            ? "bg-yellow-500"
-                            : "bg-blue-500"
+                        ? "bg-green-500"
+                        : matchEvent.type === "yellow"
+                          ? "bg-yellow-500"
+                          : "bg-blue-500"
                         }`}
                     ></span>
                   </div>
