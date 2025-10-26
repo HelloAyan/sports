@@ -2,11 +2,27 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["www.thesportsdb.com",
+    domains: [
+      "www.thesportsdb.com",
       "r1.thesportsdb.com",
       "r2.thesportsdb.com",
       "hebbkx1anhila5yf.public.blob.vercel-storage.com",
     ],
+  },
+
+  webpack: (config, { isServer, dev }) => {
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+        crypto: false,
+        stream: false,
+      };
+    }
+
+    return config;
   },
 }
 

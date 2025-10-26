@@ -1,8 +1,10 @@
-export const runtime = "nodejs";
-import NextAuth from "next-auth"
-import GoogleProvider from "next-auth/providers/google"
+// app/api/auth/[...nextauth]/route.ts
+import NextAuth, { NextAuthOptions, Session, User, JWT } from "next-auth";
+import GoogleProvider from "next-auth/providers/google";
 
-const handler = NextAuth({
+export const runtime = "nodejs"; // Force Node runtime for server
+
+export const authOptions: NextAuthOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID!,
@@ -14,19 +16,27 @@ const handler = NextAuth({
     error: "/auth/error",
   },
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user }: { token: JWT; user?: User }) {
       if (user) {
-        token.id = user.id
+        token.id = user.id;
       }
-      return token
+      return token;
     },
-    async session({ session, token }) {
+    async session({
+      session,
+      token,
+    }: {
+      session: Session;
+      token: JWT & { id?: string };
+    }) {
       if (session.user) {
-        ; (session.user as any).id = token.id
+        (session.user as any).id = token.id;
       }
-      return session
+      return session;
     },
   },
-})
+};
 
-export { handler as GET, handler as POST }
+const handler = NextAuth(authOptions);
+
+export { handler as GET, handler as POST };
