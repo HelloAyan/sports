@@ -289,12 +289,12 @@ const enhancedMockData: SportsDBEvent[] = [
   }
 ]
 
-interface LiveEventsProps {
+interface TwoCombineComponentProps {
   layout?: "grid" | "wide" | "single" | "match-center"
   title?: string
 }
 
-export function LiveEvents({ layout = "grid", title = "Live Sports Events" }: LiveEventsProps) {
+export function TwoCombineComponent({ layout = "grid", title = "Live Sports Events" }: TwoCombineComponentProps) {
   const [events, setEvents] = useState<SportsDBEvent[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)

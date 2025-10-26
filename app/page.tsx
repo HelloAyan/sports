@@ -12,6 +12,7 @@ import { AllFixtures } from "@/components/all-fixtures"
 import { FindVenues } from "@/components/find-venues"
 import { HeroSearchSection } from "@/components/hero-search-section"
 import { TrendingNowSection } from "@/components/trending-now-section"
+import { TwoCombineComponent } from "@/components/TwoCombineComponent"
 
 export default function HomePage() {
   return (
@@ -62,17 +63,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/*Best-of-breed version */}
+      {/* Best-of-breed version - Combined Layout */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold sports-text-gradient mb-4"> Best-of-breed version</h2>
+            <h2 className="text-4xl font-bold sports-text-gradient mb-4">Best-of-Breed Version</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Combined two layout
+              Combined all features from both layouts into one enhanced component
             </p>
           </div>
-          <Suspense fallback={<div className="text-center">Loading single layout events...</div>}>
-            <LiveEvents layout="single" title="Live Events " />
+          <Suspense fallback={<div className="text-center">Loading enhanced events...</div>}>
+            <TwoCombineComponent layout="match-center" title="Enhanced Live Events" />
           </Suspense>
         </div>
       </section>
