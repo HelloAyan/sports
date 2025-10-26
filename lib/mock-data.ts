@@ -1,0 +1,60 @@
+import type { Event } from "@/lib/types"
+
+export const mockEvents: Event[] = [
+  {
+    idEvent: "1",
+    strEvent: "Arsenal vs Manchester United",
+    strLeague: "English Premier League",
+    dateEvent: "2023-06-15",
+    strTime: "15:00",
+    strVenue: "Emirates Stadium",
+  },
+  {
+    idEvent: "2",
+    strEvent: "Los Angeles Lakers vs Golden State Warriors",
+    strLeague: "NBA",
+    dateEvent: "2023-06-16",
+    strTime: "19:30",
+    strVenue: "Staples Center",
+  },
+  {
+    idEvent: "3",
+    strEvent: "Novak Djokovic vs Rafael Nadal",
+    strLeague: "Wimbledon",
+    dateEvent: "2023-06-17",
+    strTime: "14:00",
+    strVenue: "Centre Court",
+  },
+  {
+    idEvent: "4",
+    strEvent: "New York Yankees vs Boston Red Sox",
+    strLeague: "MLB",
+    dateEvent: "2023-06-18",
+    strTime: "19:05",
+    strVenue: "Yankee Stadium",
+  },
+  {
+    idEvent: "5",
+    strEvent: "Paris Saint-Germain vs Olympique Marseille",
+    strLeague: "Ligue 1",
+    dateEvent: "2023-06-19",
+    strTime: "20:45",
+    strVenue: "Parc des Princes",
+  },
+  {
+    idEvent: "6",
+    strEvent: "Max Verstappen vs Lewis Hamilton",
+    strLeague: "Formula 1 - Monaco Grand Prix",
+    dateEvent: "2023-06-20",
+    strTime: "14:00",
+    strVenue: "Circuit de Monaco",
+  },
+  {
+    idEvent: "7",
+    strEvent: "Serena Williams vs Naomi Osaka",
+    strLeague: "US Open",
+    dateEvent: "2023-06-21",
+    strTime: "19:00",
+    strVenue: "Arthur Ashe Stadium",
+  },
+]

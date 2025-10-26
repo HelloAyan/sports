@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 142.1 76.2% 36.3%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary: 217.2 91.2% 59.8%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 24.6 95% 53.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 142.1 76.2% 36.3%;
+    --radius: 0.5rem;
+    --sports-green: #1db954;
+    --sports-red: #e4002b;
+    --sports-gold: #ffd700;
+    --sports-dark: #111827;
+    --sports-light: #ffffff;
+    --scroll-width: 100vw; /* Added for marquee animation */
+    --animation-duration: 30s; /* Added for marquee animation */
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 142.1 76.2% 36.3%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 24.6 95% 53.1%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 142.1 76.2% 36.3%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-1 * var(--scroll-width) / 2));
+  }
+}
+
+.animate-marquee {
+  animation: marquee var(--animation-duration) linear infinite;
+  width: fit-content;
+  display: flex;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.trending-tags {
+  width: 100%;
+  max-width: 72rem; /* matches max-w-6xl */
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.sports-gradient {
+  background: linear-gradient(135deg, var(--sports-green), var(--sports-gold));
+}
+
+.sports-card {
+  @apply bg-white shadow-lg rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl;
+}
+
+.sports-button {
+  @apply bg-sports-primary text-white font-bold py-2 px-4 rounded transition-all duration-300 hover:bg-sports-secondary;
+}
+
+.sports-text-gradient {
+  @apply text-transparent bg-clip-text;
+  background-image: linear-gradient(to right, theme("colors.sports.primary"), theme("colors.sports.gold"));
+  background-size: 200% auto;
+  animation: shine 8s ease infinite;
+}
+
+.logo-container {
+  @apply relative;
+  animation: float 3s ease-in-out infinite;
+}
+
+.sports-icon {
+  @apply transition-all duration-300 transform hover:scale-110;
+}
+
+/* Vibrant background gradient */
+.sports-bg-gradient {
+  background: linear-gradient(135deg, var(--sports-green), var(--sports-red), var(--sports-gold));
+  background-size: 200% 200%;
+  animation: gradientBG 10s ease infinite;
+}
+
+/* Hover animation for cards */
+.hover-expand {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-expand:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Marquee animations */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 40s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right 40s linear infinite;
+}
+
+/* Enhanced animations */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-shine {
+  background: linear-gradient(
+    to right,
+    var(--sports-green) 20%,
+    var(--sports-gold) 40%,
+    var(--sports-gold) 60%,
+    var(--sports-green) 80%
+  );
+  background-size: 200% auto;
+  color: #000;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 3s linear infinite;
+}
+
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
